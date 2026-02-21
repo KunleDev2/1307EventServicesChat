@@ -8,7 +8,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-client_qdrant = QdrantClient("localhost", port=6333)
+# client_qdrant = QdrantClient("localhost", port=6333)
+client_qdrant = QdrantClient(
+    url=os.getenv("QDRANT_URL"),
+    api_key=os.getenv("QDRANT_API_KEY"),
+)
 
 collection_name = "knowledge_base"
 
